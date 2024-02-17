@@ -14,6 +14,7 @@ export const AppLayout: FC<Props> = ({ children }) => {
           token: {
             borderRadius: 4,
             colorBgContainer: "#242424 ",
+            colorBorderSecondary: "var(--border-color)",
           },
         }}
       >

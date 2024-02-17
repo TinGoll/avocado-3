@@ -9,18 +9,21 @@ export const authenticationStore = createStore<Authentication.Store>()(
   localStoragePersistMiddleware(
     (set, get) => ({
       token: null,
+      user: null,
       isAuth: false,
       actions: {
         logout: () =>
           set((state) => ({
             ...state,
             token: null,
+            user: null,
             isAuth: false,
           })),
-        login: () =>
+        login: (userName: string) =>
           set((state) => ({
             ...state,
             isAuth: true,
+            user: userName,
             token: {
               accessToken: "accessToken",
               refreshToken: "refreshToken",

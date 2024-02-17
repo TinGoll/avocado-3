@@ -2,6 +2,7 @@ export declare module Authentication {
   interface Store {
     token: Credentials | null;
     isAuth: boolean;
+    user: User;
     actions: Actions;
   }
 
@@ -12,7 +13,9 @@ export declare module Authentication {
   }
 
   interface Actions {
-    login: () => void;
+    login: (userName: string) => void;
     logout: () => void;
   }
+
+  type User = string | null;
 }

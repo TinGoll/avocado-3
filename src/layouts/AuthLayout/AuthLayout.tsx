@@ -1,6 +1,7 @@
 import { useIsAuth } from "@/features/authentication";
 import { FC } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
+import styles from "./AuthLayout.module.css";
 
 export const AuthLayout: FC = () => {
   const isAuth = useIsAuth();
@@ -12,11 +13,8 @@ export const AuthLayout: FC = () => {
   }
 
   return (
-    <div>
-      <div>AuthLayout</div>
-      <div>
-        <Outlet />
-      </div>
+    <div className={styles.root}>
+      <Outlet />
     </div>
   );
 };
