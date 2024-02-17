@@ -12,12 +12,12 @@ export const CommonLayout: FC = () => {
   }
 
   return (
-    <div>
+    <div className={styles.root}>
       <header className={styles.header}>Headr</header>
-      <main>
+      <div className={styles.sidebar}>sidebar</div>
+      <main className={styles.content}>
         <Outlet />
       </main>
-      <footer>Footer</footer>
     </div>
   );
 };

@@ -12,6 +12,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --border-color: #474747;
 }
 
 body {
@@ -26,4 +28,25 @@ code {
   padding: 2px 4px;
   margin: 0 4px;
   border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 6px; /* Ширина скроллбара */
+  border-radius: 3px; /* Скругление углов скроллбара */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #242424; /* Цвет скроллбара */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #585858; /* Цвет скроллбара */
+  border-radius: 5px; /* Скругление углов скроллбара */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #1a1a1a; /* Цвет скроллбара при наведении */
 }
