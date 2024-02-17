@@ -1,8 +1,9 @@
+import { useIsAuth } from "@/features/authentication";
 import { FC } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 export const AuthLayout: FC = () => {
-  const isAuth = false;
+  const isAuth = useIsAuth();
   const location = useLocation();
   const fromPage = location.state?.from?.pathname || "/";
 
@@ -19,4 +20,3 @@ export const AuthLayout: FC = () => {
     </div>
   );
 };
-
