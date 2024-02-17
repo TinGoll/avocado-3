@@ -1,7 +1,8 @@
 import { FC } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import styles from "./CommonLayout.module.css";
-import { useIsAuth } from "@/features/authentication";
+import { logout, useIsAuth } from "@/features/authentication";
+import { Button } from "antd";
 
 export const CommonLayout: FC = () => {
   const isAuth = useIsAuth();
@@ -13,7 +14,9 @@ export const CommonLayout: FC = () => {
 
   return (
     <div className={styles.root}>
-      <header className={styles.header}>Headr</header>
+      <header className={styles.header}>
+        <Button onClick={logout}>Разлогинится</Button> <br />
+      </header>
       <div className={styles.sidebar}>sidebar</div>
       <main className={styles.content}>
         <Outlet />
