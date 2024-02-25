@@ -1,9 +1,12 @@
 import { logout } from "@/features/authentication";
 import { Button } from "antd";
 import { FC } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 export const HomePage: FC = () => {
+
+  return <Navigate to={'orders/33?test_param=test'} />;
+
   return (
     <div>
       <Button onClick={logout}>Разлогинится</Button> <br />

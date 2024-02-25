@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { AppLayout, AuthLayout, CommonLayout } from "./layouts";
-import { HomePage, LoginPage } from "./pages";
+import { HomePage, LoginPage, NotFoundPage, OrderPage } from "./pages";
 
 function App() {
   return (
@@ -12,6 +12,8 @@ function App() {
 
         <Route path="/" element={<CommonLayout />}>
           <Route index element={<HomePage />} />
+          <Route path="/orders/:orderId/*" element={<OrderPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </AppLayout>
