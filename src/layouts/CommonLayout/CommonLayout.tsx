@@ -28,6 +28,7 @@ export const CommonLayout: FC = () => {
         <Container>
           <Link to="/">Home</Link>
           <Link to="ui-book">Ui Book</Link>
+          <Link to="orders/100">order</Link>
         </Container>
       </header>
       <div className={styles.sidebar}>sidebar</div>
