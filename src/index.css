@@ -2,32 +2,19 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-
-  --border-color: #474747;
+  scroll-behavior: smooth;
+  color-scheme: light dark;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  line-height: 1;
-}
-
-code {
-  background-color: #1a1a1a;
-  padding: 2px 4px;
-  margin: 0 4px;
-  border-radius: 4px;
 }
 
 ::-webkit-scrollbar {
@@ -37,16 +24,18 @@ code {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #242424; /* Цвет скроллбара */
+  background: var(--color-scrollbar-track); /* Цвет скроллбара */
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #585858; /* Цвет скроллбара */
+  background: var(--color-scrollbar-thumb); /* Цвет скроллбара */
   border-radius: 5px; /* Скругление углов скроллбара */
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #1a1a1a; /* Цвет скроллбара при наведении */
+  background: var(
+    --color-scrollbar-thumb-hover
+  ); /* Цвет скроллбара при наведении */
 }
