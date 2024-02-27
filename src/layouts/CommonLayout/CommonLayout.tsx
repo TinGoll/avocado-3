@@ -1,8 +1,18 @@
 import { FC } from "react";
-import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { Link, Navigate, Outlet, useLocation } from "react-router-dom";
 import styles from "./CommonLayout.module.css";
-import { logout, useIsAuth } from "@/features/authentication";
-import { Button } from "antd";
+import { useIsAuth } from "@/features/authentication";
+import styled from "@emotion/styled";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  height: 100%;
+  padding: 0 16px;
+`;
 
 export const CommonLayout: FC = () => {
   const isAuth = useIsAuth();
@@ -15,7 +25,10 @@ export const CommonLayout: FC = () => {
   return (
     <div className={styles.root}>
       <header className={styles.header}>
-        <Button onClick={logout}>Разлогинится</Button> <br />
+        <Container>
+          <Link to="/">Home</Link>
+          <Link to="ui-book">Ui Book</Link>
+        </Container>
       </header>
       <div className={styles.sidebar}>sidebar</div>
       <main className={styles.content}>
