@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { AppLayout, AuthLayout, CommonLayout } from "./layouts";
 import { HomePage, LoginPage } from "./pages";
 import { UiBook } from "./pages/UiBook/UiBook";
-import { OrderPage } from "./pages/OrdersPage/OrderPage";
+import { OrderPage } from "./pages/OrderPage/OrderPage";
 
 function App() {
   return (

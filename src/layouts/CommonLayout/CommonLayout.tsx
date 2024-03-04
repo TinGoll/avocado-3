@@ -3,12 +3,13 @@ import { Link, Navigate, Outlet, useLocation } from "react-router-dom";
 import styles from "./CommonLayout.module.css";
 import { useIsAuth } from "@/features/authentication";
 import styled from "@emotion/styled";
+import { ModeButton } from "@/theme";
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 16px;
   height: 100%;
   padding: 0 16px;
@@ -26,9 +27,19 @@ export const CommonLayout: FC = () => {
     <div className={styles.root}>
       <header className={styles.header}>
         <Container>
-          <Link to="/">Home</Link>
-          <Link to="ui-book">Ui Book</Link>
-          <Link to="orders/100">order</Link>
+          <div
+            css={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-start",
+              gap: "16px",
+            }}
+          >
+            <Link to="/">Home</Link>
+            <Link to="ui-book">Ui Book</Link>
+            <Link to="orders/100">order</Link>
+          </div>
+          <ModeButton size="small" />
         </Container>
       </header>
       <div className={styles.sidebar}>sidebar</div>

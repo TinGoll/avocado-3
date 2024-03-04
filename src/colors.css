@@ -156,7 +156,7 @@
   --color-lime-dark: var(--palette-lime-800);
   --color-lime-contrast-text: black;
 
-  --color-body: var(--palette-neutral-50);
+  --color-body: var(--palette-neutral-100);
   --color-surface: white;
   --color-border: rgba(0, 0, 0, 0.12);
 

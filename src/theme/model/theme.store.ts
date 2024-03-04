@@ -1,7 +1,7 @@
 import { createStore, useStore } from "zustand";
 import { localStoragePersistMiddleware } from "@/zustandHelpers/localStoragePersistMiddleware.zustand";
 import { withStorageDOMEvents } from "@/zustandHelpers/withStorageDOMEvents.zustand";
-import { AppTheme } from "./types.store";
+
 
 const THEME_MODE_LOCAL_STORAGE_KEY = "theme-mode";
 
