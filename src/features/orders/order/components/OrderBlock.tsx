@@ -10,7 +10,6 @@ const Block = styled.div`
 export const OrderBlock: FC<Props> = ({ orderId }) => {
   return (
     <Block>
-      <Typography type="h1" color="yellow">Привет</Typography>
       <OrderHeader orderId={orderId} orderTitle="Lorem, ipsum dolor." />
     </Block>
   );
