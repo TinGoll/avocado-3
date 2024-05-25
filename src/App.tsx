@@ -25,7 +25,7 @@ function App() {
         <Route path="cubic" element={<CubicLayout />}>
           <Route index element={<CubicHome />} />
           <Route path={CubicPage.SUPPLIERS} element={<SuppliersPage />} />
-          <Route path={CubicPage.PRICE} element={<PricePage />} />
+          <Route path={CubicPage.PRICE} element={<UiBook />} />
         </Route>
       </Routes>
     </AppLayout>
