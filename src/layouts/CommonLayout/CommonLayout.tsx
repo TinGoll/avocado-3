@@ -37,7 +37,7 @@ export const CommonLayout: FC = () => {
           >
             <Link to="/">Home</Link>
             <Link to="ui-book">Ui Book</Link>
-            <Link to="orders/100">order</Link>
+            <Link to="orders/100/edit">order</Link>
           </div>
           <ModeButton size="small" />
         </Container>
