@@ -23,6 +23,7 @@
 }
 
 .sidebar {
+  padding: 16px;
   grid-area: sidebar;
   position: sticky;
   top: var(--header-width);

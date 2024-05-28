@@ -42,7 +42,7 @@ export const CommonLayout: FC = () => {
           <ModeButton size="small" />
         </Container>
       </header>
-      <div className={styles.sidebar}>sidebar</div>
+      <div className={styles.sidebar}>Lorem ipsum dolor sit amet.</div>
       <main className={styles.content}>
         <Outlet />
       </main>

@@ -9,7 +9,6 @@ type TParams = {
 export const OrderPage: FC = () => {
   const params = useParams<TParams>();
   const orderId = Number(params.orderId);
-  const [searchParams, setSearchParams] = useSearchParams();
   
   return <OrderBlock orderId={orderId} />;
 };
