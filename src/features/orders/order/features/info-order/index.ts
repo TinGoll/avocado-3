@@ -1,1 +1,1 @@
-export * from "./components/InfoOrder";
+export * from "./InfoOrder";

@@ -22,7 +22,7 @@ export const OrderHeader: FC = () => {
         <div className="info">
           <Avatar
             shape="square"
-            size={40}
+            size={44}
             icon={<FireOutlined />}
             css={{
               color: theme.pelette.error[mode === "dark" ? 400 : 500],
@@ -31,7 +31,7 @@ export const OrderHeader: FC = () => {
           />
           <div>
             <OrderHeaderBreadcrumb orderNumber={orderId} />
-            <h1> Lorem ipsum dolor sit. {orderMode}</h1>
+            <h1 className="title"> Кухонные шкафы №1</h1>
           </div>
         </div>
         <div className="buttons">

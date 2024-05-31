@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-type Mode = "edit" | "info";
+type Mode = "edit" | "info" | "print";
 type TUseParams = { orderId: string; "*": Mode };
 
 type TFunction = () => Mode;

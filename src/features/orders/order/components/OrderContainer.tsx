@@ -6,14 +6,14 @@ export const OrderContainer = styled.div`
   grid-template-rows: 1fr;
   height: 100%;
   max-height: 100%;
-  & .main {
+  & .order-data {
     max-height: 100%;
     height: 100%;
     padding: var(--body-padding);
     padding-right: calc(var(--body-padding) / 2);
   }
 
-  & .sidebar {
+  & .order-sidebar {
     max-height: 100%;
     height: 100%;
     padding: var(--body-padding);
