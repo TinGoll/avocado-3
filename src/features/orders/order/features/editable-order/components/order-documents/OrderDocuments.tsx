@@ -27,6 +27,11 @@ const StyledTabs = styled(Tabs)<StyledCollapseProps>`
   & .ant-tabs-nav .ant-tabs-tab.ant-tabs-tab-active {
     background: ${({ theme }) => theme.pelette.background.surface};
   }
+
+  & .ant-tabs-nav .ant-tabs-nav-add {
+    min-width: 30px;
+    min-height: 30px 
+  }
 `;
 
 export const OrderDocuments: FC = () => {
