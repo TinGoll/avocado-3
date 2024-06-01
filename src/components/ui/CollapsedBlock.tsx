@@ -7,9 +7,9 @@ type SizeType = "small" | "middle" | "large";
 type StyledCollapseProps = { mode: Avocado.Mode };
 
 const StyledCollapse = styled(Collapse)<StyledCollapseProps>`
-  /* background: ${({ mode }) =>
-    mode === "dark" ? "#ffffffa" : "#000000a"}; */
-  background: transparent;
+  background: ${({ mode }) =>
+    mode === "dark" ? "#ffffffa" : "#000000a"};
+  /* background: transparent; */
   .ant-collapse-header {
     padding-left: 0 !important;
     padding-right: 0 !important;

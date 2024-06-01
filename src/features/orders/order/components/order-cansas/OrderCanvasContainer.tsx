@@ -5,7 +5,7 @@ export const OrderCanvasContainer = styled(Block)`
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   & .sticky-header {
     position: sticky;
     top: 0;

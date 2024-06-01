@@ -1,9 +1,17 @@
-import { CollapsedBlock } from '@/components/ui';
-import styled from '@emotion/styled';
-import { FC } from 'react'
-import { OrderCustomerDetailsHeader } from '../order-сustomer-details/OrderCustomerDetailsHeader';
-import { CustomerField, OrderNameField, PriceField, RegistrationDateField, IssueDateField, UrgencyField } from '../order-сustomer-details/fields';
-
+import { CollapsedBlock } from "@/components/ui";
+import styled from "@emotion/styled";
+import { FC } from "react";
+import { OrderDocumentDetailsHeader } from "./OrderDocumentDetailsHeader";
+import {
+  FacadeModelField,
+  PanelField,
+  MaterialField,
+  ColorField,
+  PatinaField,
+  VarnishField,
+  DrillingField,
+  ThermalSeamField,
+} from "./fields";
 
 const Container = styled.div`
   display: flex;
@@ -21,19 +29,21 @@ const Block = styled.div`
 
 export const OrderDocumentDetails: FC = () => {
   return (
-    <CollapsedBlock label={<OrderCustomerDetailsHeader />}>
-    <Container>
-      <Block>
-        <CustomerField />
-        <OrderNameField />
-        <PriceField />
-      </Block>
-      <Block>
-        <RegistrationDateField />
-        <IssueDateField />
-        <UrgencyField />
-      </Block>
-    </Container>
-  </CollapsedBlock>
-  )
-}
+    <CollapsedBlock label={<OrderDocumentDetailsHeader />}>
+      <Container>
+        <Block>
+          <FacadeModelField />
+          <PanelField />
+          <MaterialField />
+          <ColorField />
+        </Block>
+        <Block>
+          <PatinaField />
+          <VarnishField />
+          <DrillingField />
+          <ThermalSeamField />
+        </Block>
+      </Container>
+    </CollapsedBlock>
+  );
+};
