@@ -9,11 +9,10 @@ import { OrderHeaderBreadcrumb } from "./OrderHeaderBreadcrumb";
 import { useTheme } from "@emotion/react";
 import { useMode } from "@/theme";
 import { OrderHeaderContainer as Container } from "./OrderHeaderContainer";
-import { useOrderId, useOrderMode } from "../../hooks";
+import { useOrderId } from "../../hooks";
 
 export const OrderHeader: FC = () => {
   const orderId = useOrderId();
-  const orderMode = useOrderMode();
   const theme = useTheme();
   const mode = useMode();
   return (
