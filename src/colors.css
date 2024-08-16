@@ -156,7 +156,7 @@
   --color-lime-dark: var(--palette-lime-800);
   --color-lime-contrast-text: black;
 
-  --color-body: var(--palette-neutral-50);
+  --color-body: var(--palette-neutral-100);
   --color-surface: white;
   --color-border: rgba(0, 0, 0, 0.12);
 
@@ -168,6 +168,9 @@
   --color-scrollbar-thumb: var(--palette-neutral-400);
   --color-scrollbar-track: var(--palette-neutral-200);
   --color-scrollbar-thumb-hover: var(--palette-neutral-600);
+
+  --editable-hover-color: rgba(0, 0, 0, 0.06);
+
 }
 
 [data-theme-mode="dark"] {
@@ -229,4 +232,7 @@
   --color-scrollbar-thumb: #5e5e5e;
   --color-scrollbar-track: #313131;
   --color-scrollbar-thumb-hover: #7a7a7a;
+
+  --editable-hover-color: rgba(255, 255, 255, 0.06);
+
 }

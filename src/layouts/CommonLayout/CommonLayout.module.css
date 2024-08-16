@@ -10,6 +10,8 @@
     "sidebar content";
 
   --header-width: 46px;
+  --body-gap: 16px;
+  --body-padding: 16px;
 }
 
 .header {
@@ -21,6 +23,7 @@
 }
 
 .sidebar {
+  padding: 16px;
   grid-area: sidebar;
   position: sticky;
   top: var(--header-width);

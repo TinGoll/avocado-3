@@ -1,13 +1,11 @@
-export declare module AppTheme {
+declare module AppTheme {
   interface Store {
-    mode: Mode;
+    mode: Avocado.Mode;
     actions: Actions;
   }
 
   interface Actions {
-    setMode: (mode: Mode) => void;
+    setMode: (mode: Avocado.Mode) => void;
     toggleMode: () => void;
   }
-
-  type Mode = "light" | "dark";
 }
