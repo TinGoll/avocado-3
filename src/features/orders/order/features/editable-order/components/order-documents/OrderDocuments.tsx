@@ -28,6 +28,11 @@ export const OrderDocuments: FC = () => {
           label: "Документ 2",
           children: <OrderDocument />,
         },
+        {
+          key: "3",
+          label: "Документ c длинным названием 3",
+          children: <OrderDocument />,
+        },
       ]}
     />
   );
