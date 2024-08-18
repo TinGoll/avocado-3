@@ -7,12 +7,14 @@ const Root = styled.div`
   padding: 0;
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-rows: var(--header-width) 1fr;
+  grid-template-rows: var(--header-height) 1fr;
   grid-template-areas:
     "header header"
     "sidebar content";
 
-  --header-width: 46px;
+  --header-height: 46px;
+  --content-height: calc(100vh - var(--header-height));
+  
   --body-gap: 16px;
   --body-padding: 16px;
 `;
@@ -28,15 +30,17 @@ const Header = styled.header`
 const Sidebar = styled.aside`
   grid-area: sidebar;
   position: sticky;
-  top: var(--header-width);
-  max-width: 300px;
+  top: var(--header-height);
+  max-width: 320px;
   overflow-y: auto;
   border-right: 1px solid var(--color-border);
 `;
 
 const Content = styled.main`
   grid-area: content;
-  overflow-y: auto;
+  height: var(--content-height);
+  overflow: hidden;
+  box-sizing: border-box;
 `;
 
 interface Composition {

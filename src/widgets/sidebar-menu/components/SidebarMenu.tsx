@@ -4,8 +4,11 @@ import {
   UserOutlined,
   TeamOutlined,
   FileOutlined,
+  RightOutlined,
+  LeftOutlined,
 } from "@ant-design/icons";
-import { Menu, MenuProps } from "antd";
+import styled from "@emotion/styled";
+import { Button, Menu, MenuProps } from "antd";
 import { FC, useState } from "react";
 
 type MenuItem = Required<MenuProps>["items"][number];
@@ -39,6 +42,24 @@ const items: MenuItem[] = [
   getItem("Files", "9", <FileOutlined />),
 ];
 
+const StyledMenu = styled(Menu)`
+  &.ant-menu.ant-menu-root.ant-menu-vertical {
+    border-inline-end: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+  &.ant-menu-inline-collapsed {
+    width: 64px;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  &.ant-btn.ant-btn-icon-only {
+    width: 100%;
+  }
+`;
+
 export const SidebarMenu: FC = () => {
   const [collapsed, setCollapsed] = useState(true);
 
@@ -47,11 +68,18 @@ export const SidebarMenu: FC = () => {
   };
 
   return (
-    <Menu
-      inlineCollapsed={collapsed}
-      defaultSelectedKeys={["1"]}
-      mode="inline"
-      items={items}
-    />
+    <>
+      <StyledButton
+        size="small"
+        onClick={() => setCollapsed((prev) => !prev)}
+        icon={collapsed ? <RightOutlined /> : <LeftOutlined />}
+      />
+      <StyledMenu
+        inlineCollapsed={collapsed}
+        defaultSelectedKeys={["1"]}
+        mode="inline"
+        items={items}
+      />
+    </>
   );
 };
