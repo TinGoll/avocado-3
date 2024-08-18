@@ -18,6 +18,9 @@
     "build": "tsc && vite build && electron-builder",
     "preview": "vite preview",
     "pree2e": "vite build --mode=test",
+    "update-packages:patch": "ncu --target patch -u && npm i",
+    "update-packages:minor": "ncu --target minor -u && npm i",
+    "update-packages:latest": "ncu --target latest -u && npm i",
     "e2e": "playwright test"
   },
   "dependencies": {
@@ -29,6 +32,7 @@
     "dayjs": "^1.11.10",
     "electron-updater": "^6.1.1",
     "framer-motion": "^11.0.5",
+    "npm-check-updates": "^17.0.6",
     "react-router-dom": "^6.22.1",
     "swr": "^2.2.5",
     "zustand": "^4.5.1"

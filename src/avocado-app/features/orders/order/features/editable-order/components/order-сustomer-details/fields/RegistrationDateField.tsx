@@ -2,5 +2,5 @@ import { OrderField } from "@/avocado-app/features/orders/order/components/order
 import { FC } from "react";
 
 export const RegistrationDateField: FC = () => {
-  return <OrderField label="Дата регистрации заказа">31.05.2024</OrderField>;
+  return <OrderField label="Дата рег. заказа">31.05.2024</OrderField>;
 };
