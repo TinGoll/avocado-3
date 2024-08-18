@@ -1,4 +1,3 @@
-import { Order } from "@/avocado-app/features/orders/order";
 import { FC } from "react";
 import { OrderLayout } from "../shared/layouts";
 import { OrderCanvas } from "../features/orders/order/components/order-cansas";
