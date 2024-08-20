@@ -1,5 +1,5 @@
-import { Editable } from "@/shared/ui";
 import { OrderField } from "@/avocado-app/features/orders/order/components/order-field";
+import { Editable } from "@/entities/editable";
 import { Input } from "antd";
 import { useState } from "react";
 
@@ -23,6 +23,7 @@ export const CustomerField = () => {
     <OrderField label="Заказчик">
       <Editable
         name="customer"
+        confirmOnBlur
         onSave={handleSave}
         defaultValue={data}
         autoSelect

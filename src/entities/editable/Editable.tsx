@@ -4,192 +4,22 @@ import {
   EditOutlined,
   LoadingOutlined,
 } from "@ant-design/icons";
-import styled from "@emotion/styled";
 import { Button, Typography } from "antd";
 import dayjs from "dayjs";
 import {
   ReactElement,
-  ReactNode,
-  Ref,
   useCallback,
   useEffect,
   useMemo,
   useRef,
   useState,
 } from "react";
-
-//dfdg
-
-const Container = styled.div`
-  position: relative;
-  display: inline-flex;
-  padding-right: calc(var(--editable-button-width) + var(--editable-gap));
-  border-radius: 4px;
-  --editable-gap: 6px;
-  --editable-button-width: 26px;
-
-  &.loading-mode {
-    color: ${({ theme }) => theme.pelette.text.tertiary} !important;
-  }
-
-  &.full-width {
-    display: flex;
-  }
-
-  &.edit-mode {
-    padding-right: calc(
-      var(--editable-button-width) * 2 + var(--editable-gap) * 2
-    );
-  }
-
-  &:not(.disabled).info-mode {
-    cursor: pointer;
-
-    &:hover::before {
-      border-color: var(--color-border);
-    }
-
-    &:hover .editable-button {
-      opacity: 1;
-    }
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -4px;
-    right: 0;
-    bottom: 0;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    transition: border-color 0.3s ease-in-out;
-    pointer-events: none;
-  }
-
-  &.disabled .editable-button button {
-    cursor: default;
-  }
-
-  & .editable-button {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: var(--editable-hover-color);
-    border-radius: 0 4px 4px 0;
-    width: var(--editable-button-width);
-    height: 100%;
-    transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
-
-    button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: var(--editable-button-width);
-      height: 100%;
-      padding: 0;
-      color: ${({ theme }) => theme.pelette.text.icon};
-      cursor: pointer;
-
-      &.ant-btn-text:not(:disabled):not(.ant-btn-disabled):hover {
-        color: ${({ theme }) => theme.pelette.text.icon};
-        background: var(--editable-hover-color);
-      }
-    }
-  }
-
-  & .buttons {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: none;
-    align-items: flex-start;
-    justify-content: flex-end;
-    gap: 4px;
-    height: 100%;
-
-    & > button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: var(--editable-button-width);
-      height: 100%;
-      max-height: 32px;
-      padding: 0;
-      border: 1px solid var(--color-border);
-
-      svg {
-        width: 12px;
-        height: 12px;
-      }
-    }
-  }
-
-  &.edit-mode .buttons {
-    display: flex;
-  }
-
-  & .loading-icon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    & .icon {
-      width: 22px;
-      height: 22px;
-    }
-  }
-
-  & .editable-error {
-    padding: 1px;
-    position: absolute;
-    left: 0;
-    top: calc(100%);
-    max-width: 100%;
-    font-size: 9px;
-    line-height: 6px;
-    color: ${({ theme }) => theme.pelette.error.main};
-    background-color: ${({ theme }) => theme.pelette.background.surface};
-    border-radius: 2px;
-  }
-`;
-
-type Disabled = boolean | ((name: string) => boolean);
-type EditableValue = string | number | Date;
-
-type SelectEventValue = string | string[];
-type DatePickerValue = dayjs.Dayjs | null;
-
-type ChangeFn = (
-  event:
-    | React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    | SelectEventValue
-    | DatePickerValue
-) => void;
-
-type ControlProps<T extends EditableValue> = {
-  value?: T | null;
-  onChange?: ChangeFn;
-  className?: string;
-  placeholder?: string;
-  defaultValue?: T;
-  ref?: Ref<any>;
-};
-
-type Props<T extends EditableValue> = {
-  children?: ReactNode;
-  disabled?: Disabled;
-  name: string;
-  loading?: boolean;
-  placeholder?: string;
-  defaultValue?: T;
-  autoSelect?: boolean;
-  control?: (props: ControlProps<T>) => ReactNode;
-  onSave?: (name: string, value: T) => Promise<void>;
-};
+import { EditableWrapper } from "./EditableWrapper";
+import {
+  EditableChangeFn,
+  EditableProps,
+  EditableValue,
+} from "./types/editable.types";
 
 const { Paragraph } = Typography;
 
@@ -201,9 +31,11 @@ export const Editable = <T extends EditableValue = string>({
   placeholder,
   defaultValue,
   autoSelect,
+  confirmOnBlur,
+  confirmOnChange,
   control,
   onSave,
-}: Props<T>): ReactElement => {
+}: EditableProps<T>): ReactElement => {
   const [editing, setEditing] = useState<boolean>(false);
   const [value, setValue] = useState<T | undefined>(defaultValue || undefined);
   const [saving, setSaving] = useState(false);
@@ -268,12 +100,13 @@ export const Editable = <T extends EditableValue = string>({
     (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
       event.stopPropagation();
       setValue(initialValue);
+      setError(null);
       handleStopEdit();
     },
     [handleStopEdit, initialValue]
   );
 
-  const handleChange: ChangeFn = useCallback((event) => {
+  const handleChange: EditableChangeFn = useCallback((event) => {
     if (event instanceof Object && "target" in event) {
       setValue(event.target.value as T);
     } else if (dayjs.isDayjs(event)) {
@@ -314,7 +147,7 @@ export const Editable = <T extends EditableValue = string>({
   );
 
   useEffect(() => {
-    if (!editing) return;
+    if (!editing || !confirmOnBlur) return;
 
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -332,7 +165,7 @@ export const Editable = <T extends EditableValue = string>({
   }, [editing, handleConfirm]);
 
   return (
-    <Container
+    <EditableWrapper
       ref={containerRef}
       className={containerClass}
       onClick={handleStartEdit}
@@ -371,6 +204,6 @@ export const Editable = <T extends EditableValue = string>({
           {error}
         </Paragraph>
       )}
-    </Container>
+    </EditableWrapper>
   );
 };
