@@ -1,10 +1,7 @@
-import {
-  AddMaterialIn,
-  AddMaterialOut,
-} from "@/avocado-app/shared/contract/services/material";
 import { useState, useCallback } from "react";
 import { addMockMaterial } from "../model";
 import { MOCK_MUTATE_DELAY } from "../settings";
+import { AddMaterialIn, AddMaterialOut } from "@/avocado-app/shared/contract/services";
 
 export const useAddMaterial = () => {
   const [isMutating, setIsMutating] = useState<boolean>(false);

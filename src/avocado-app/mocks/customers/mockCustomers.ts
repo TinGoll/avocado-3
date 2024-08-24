@@ -1,4 +1,4 @@
-import { Customer } from "@/avocado-app/shared/contract/services/customer";
+import { Customer } from "@/avocado-app/shared/contract/services/customer.service.types";
 
 export const mockCustomers: Customer[] = [
     {
