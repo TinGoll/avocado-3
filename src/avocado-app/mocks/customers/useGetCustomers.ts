@@ -1,7 +1,7 @@
 import { Customer } from "@/avocado-app/shared/contract/services/customer";
 import { useEffect, useState } from "react";
-import { useMockCustomers } from "../model/mock.store";
 import { MOCK_GET_DELAY } from "../settings";
+import { useMockCustomers } from "../model";
 
 export const useGetCustomers = () => {
   const [data, setData] = useState<Customer[]>([]);
