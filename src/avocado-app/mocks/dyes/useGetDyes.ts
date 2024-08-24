@@ -1,12 +1,12 @@
-import { Customer } from "@/avocado-app/shared/contract/services/customer.service.types";
-import { useEffect, useState } from "react";
+import { Dye } from "@/avocado-app/shared/contract/types/dye.types";
+import { useState, useEffect } from "react";
+import { useMockDyes } from "../model";
 import { MOCK_GET_DELAY } from "../settings";
-import { useMockCustomers } from "../model";
 
-export const useGetCustomers = () => {
-  const [data, setData] = useState<Customer[]>([]);
+export const useGetDyes = () => {
+  const [data, setData] = useState<Dye[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const mocks = useMockCustomers();
+  const mocks = useMockDyes();
 
   useEffect(() => {
     setIsLoading(true);

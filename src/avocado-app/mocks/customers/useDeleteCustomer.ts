@@ -1,10 +1,10 @@
+import { useCallback, useState } from "react";
+import { deleteMockCustomer } from "../model";
+import { MOCK_MUTATE_DELAY } from "../settings";
 import {
   DeleteCustomerIn,
   DeleteCustomerOut,
 } from "@/avocado-app/shared/contract/services";
-import { useCallback, useState } from "react";
-import { deleteMockCustomer } from "../model";
-import { MOCK_MUTATE_DELAY } from "../settings";
 
 export const useDeleteCustomer = () => {
   const [isMutating, setIsMutating] = useState<boolean>(false);

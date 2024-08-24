@@ -1,21 +1,21 @@
-import { useCallback, useState } from "react";
-import { updateMockCustomer } from "../model";
+import { useState, useCallback } from "react";
 import { MOCK_MUTATE_DELAY } from "../settings";
+import { updateMockVarnish } from "../model";
 import {
-  UpdateCustomerIn,
-  UpdateCustomerOut,
+  UpdateVarnishIn,
+  UpdateVarnishOut,
 } from "@/avocado-app/shared/contract/services";
 
-export const useUpdateCustomer = () => {
+export const useUpdateVarnish = () => {
   const [isMutating, setIsMutating] = useState<boolean>(false);
 
   const trigger = useCallback(
-    (params: UpdateCustomerIn): Promise<UpdateCustomerOut> => {
+    (params: UpdateVarnishIn): Promise<UpdateVarnishOut> => {
       setIsMutating(true);
       return new Promise((res) => {
         setTimeout(() => {
           setIsMutating(false);
-          updateMockCustomer(params);
+          updateMockVarnish(params);
           res({});
         }, MOCK_MUTATE_DELAY);
       });

@@ -1,12 +1,12 @@
-import { Customer } from "@/avocado-app/shared/contract/services/customer.service.types";
-import { useEffect, useState } from "react";
+import { Varnish } from "@/avocado-app/shared/contract/types/varnish.types";
+import { useMockVarnishes } from "../model";
+import { useState, useEffect } from "react";
 import { MOCK_GET_DELAY } from "../settings";
-import { useMockCustomers } from "../model";
 
-export const useGetCustomers = () => {
-  const [data, setData] = useState<Customer[]>([]);
+export const useGetVarnishes = () => {
+  const [data, setData] = useState<Varnish[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const mocks = useMockCustomers();
+  const mocks = useMockVarnishes();
 
   useEffect(() => {
     setIsLoading(true);

@@ -2,18 +2,24 @@ import { createStore } from "zustand";
 import { mockCustomers } from "../customers/mockCustomers";
 import { Customer } from "@/avocado-app/shared/contract/services";
 import { FacadeModel } from "@/avocado-app/shared/contract/types";
-import { mockFacadeModel } from "../facade-model/mockFacadeModel";
+import { mockFacadeModel } from "../facade-models/mockFacadeModel";
 import { PanelModel } from "@/avocado-app/shared/contract/types/panel-model.types";
-import { mockPanelModels } from "../panel-model/mockPanelModels";
+import { mockPanelModels } from "../panel-models/mockPanelModels";
 import { MockStoreInitialData, MockStoreActions } from "./mock.store.types";
 import { mockMaterials } from "../materials/mockMaterials";
 import { Material } from "@/avocado-app/shared/contract/types/material.types";
+import { mockVarnishes } from "../varnishes/mockVarnishes";
+import { Varnish } from "@/avocado-app/shared/contract/types/varnish.types";
+import { mockDyes } from "../dyes/mockDyes";
+import { Dye } from "@/avocado-app/shared/contract/types/dye.types";
 
 const initialData: MockStoreInitialData = {
   customers: mockCustomers,
   facadeModels: mockFacadeModel,
   panelModels: mockPanelModels,
   materials: mockMaterials,
+  varnishes: mockVarnishes,
+  dyes: mockDyes,
 };
 
 export const mockStore = createStore<MockStoreInitialData & MockStoreActions>()(
@@ -120,6 +126,54 @@ export const mockStore = createStore<MockStoreInitialData & MockStoreActions>()(
         return {
           ...state,
           materials: state.materials.filter((item) => item.id !== id),
+        };
+      }),
+    addMockVarnish: (params) =>
+      set((state) => {
+        const maxId = Math.max(
+          ...state.varnishes.map((mockItem) => mockItem.id)
+        );
+        const newItem: Varnish = { ...params, id: maxId + 1 };
+        return { ...state, varnishes: [...state.varnishes, newItem] };
+      }),
+    updateMockVarnish: ({ id, ...params }) =>
+      set((state) => {
+        const temp = state.varnishes.map((item) => {
+          if (item.id === id) {
+            return { ...item, ...params };
+          }
+          return item;
+        });
+        return { ...state, varnishes: temp };
+      }),
+    deleteMockVarnish: ({ id }) =>
+      set((state) => {
+        return {
+          ...state,
+          varnishes: state.varnishes.filter((item) => item.id !== id),
+        };
+      }),
+    addMockDye: (params) =>
+      set((state) => {
+        const maxId = Math.max(...state.dyes.map((mockItem) => mockItem.id));
+        const newItem: Dye = { ...params, id: maxId + 1 };
+        return { ...state, dyes: [...state.dyes, newItem] };
+      }),
+    updateMockDye: ({ id, ...params }) =>
+      set((state) => {
+        const temp = state.dyes.map((item) => {
+          if (item.id === id) {
+            return { ...item, ...params };
+          }
+          return item;
+        });
+        return { ...state, dyes: temp };
+      }),
+    deleteMockDye: ({ id }) =>
+      set((state) => {
+        return {
+          ...state,
+          dyes: state.dyes.filter((item) => item.id !== id),
         };
       }),
   })

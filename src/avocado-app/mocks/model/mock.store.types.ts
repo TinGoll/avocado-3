@@ -9,21 +9,29 @@ import {
   UpdatePanelModelIn,
   DeletePanelModelIn,
   Customer,
-} from "@/avocado-app/shared/contract/services";
-import {
   AddMaterialIn,
-  UpdateMaterialIn,
+  AddVarnishIn,
   DeleteMaterialIn,
-} from "@/avocado-app/shared/contract/services/material";
+  DeleteVarnishIn,
+  UpdateMaterialIn,
+  UpdateVarnishIn,
+  AddDyeIn,
+  DeleteDyeIn,
+  UpdateDyeIn,
+} from "@/avocado-app/shared/contract/services";
 import { FacadeModel } from "@/avocado-app/shared/contract/types";
+import { Dye } from "@/avocado-app/shared/contract/types/dye.types";
 import { Material } from "@/avocado-app/shared/contract/types/material.types";
 import { PanelModel } from "@/avocado-app/shared/contract/types/panel-model.types";
+import { Varnish } from "@/avocado-app/shared/contract/types/varnish.types";
 
 export interface MockStoreInitialData {
   customers: Customer[];
   facadeModels: FacadeModel[];
   panelModels: PanelModel[];
   materials: Material[];
+  varnishes: Varnish[];
+  dyes: Dye[];
 }
 
 export interface MockStoreActions {
@@ -42,4 +50,12 @@ export interface MockStoreActions {
   addMockMaterial: (params: AddMaterialIn) => void;
   updateMockMaterial: (params: UpdateMaterialIn) => void;
   deleteMockMaterial: (params: DeleteMaterialIn) => void;
+
+  addMockVarnish: (params: AddVarnishIn) => void;
+  updateMockVarnish: (params: UpdateVarnishIn) => void;
+  deleteMockVarnish: (params: DeleteVarnishIn) => void;
+
+  addMockDye: (params: AddDyeIn) => void;
+  updateMockDye: (params: UpdateDyeIn) => void;
+  deleteMockDye: (params: DeleteDyeIn) => void;
 }
