@@ -88,7 +88,12 @@ export const Editable = <T extends EditableValue = string>({
       } catch (error) {
         setValue(initialValue); // Возвращаем предыдущее значение при ошибке
         setEditing(true); // Возвращаемся в режим редактирования при ошибке
-        setError("Ошибка сохранения");
+
+        const errorMessage =
+          error instanceof Error && "message" in error
+            ? `Ошибка: ${error.message}`
+            : "Ошибка сохранения";
+        setError(errorMessage);
       } finally {
         setSaving(false);
       }
