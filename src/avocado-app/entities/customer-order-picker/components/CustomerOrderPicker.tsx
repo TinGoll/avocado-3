@@ -60,7 +60,6 @@ export const CustomerOrderPicker: FC<Props> = ({
 
   const handleOnSave = async (name: string, value: string) => {
     await wait();
-    throw new Error('Huy')
     console.log(name, value);
   };
 
