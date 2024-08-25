@@ -1,6 +1,6 @@
 import { FacadeModel } from "@/avocado-app/shared/contract/types";
 import { useEffect, useState } from "react";
-import { useMockFacadeModels } from "../model";
+import { useMockFacadeModels } from "../models";
 import { MOCK_GET_DELAY } from "../settings";
 
 export const useGetFacadeModels = () => {

@@ -3,7 +3,7 @@ import {
   DeletePanelModelOut,
 } from "@/avocado-app/shared/contract/services";
 import { useCallback, useState } from "react";
-import { deleteMockPanelModel } from "../model";
+import { deleteMockPanelModel } from "../models";
 import { MOCK_MUTATE_DELAY } from "../settings";
 
 export const useDeletePanelModel = () => {

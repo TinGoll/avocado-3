@@ -1,7 +1,7 @@
 import { PanelModel } from "@/avocado-app/shared/contract/types/panel-model.types";
 import { useState, useEffect } from "react";
 import { MOCK_GET_DELAY } from "../settings";
-import { useMockPanelModels } from "../model";
+import { useMockPanelModels } from "../models";
 
 export const useGetPanelModels = () => {
   const [data, setData] = useState<PanelModel[]>([]);

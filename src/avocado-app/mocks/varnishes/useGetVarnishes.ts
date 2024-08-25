@@ -1,5 +1,5 @@
 import { Varnish } from "@/avocado-app/shared/contract/types/varnish.types";
-import { useMockVarnishes } from "../model";
+import { useMockVarnishes } from "../models";
 import { useState, useEffect } from "react";
 import { MOCK_GET_DELAY } from "../settings";
 

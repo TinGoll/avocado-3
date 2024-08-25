@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { addMockCustomer } from "../model";
+import { addMockCustomer } from "../models";
 import { MOCK_MUTATE_DELAY } from "../settings";
 import { AddCustomerIn, AddCustomerOut } from "@/avocado-app/shared/contract/services";
 

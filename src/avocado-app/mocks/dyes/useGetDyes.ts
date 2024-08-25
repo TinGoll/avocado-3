@@ -1,6 +1,6 @@
 import { Dye } from "@/avocado-app/shared/contract/types/dye.types";
 import { useState, useEffect } from "react";
-import { useMockDyes } from "../model";
+import { useMockDyes } from "../models";
 import { MOCK_GET_DELAY } from "../settings";
 
 export const useGetDyes = () => {

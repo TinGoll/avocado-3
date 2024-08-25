@@ -1,6 +1,6 @@
 import { Material } from "@/avocado-app/shared/contract/types/material.types";
 import { useState, useEffect } from "react";
-import { useMockMaterials } from "../model";
+import { useMockMaterials } from "../models";
 import { MOCK_GET_DELAY } from "../settings";
 
 export const useGetMaterials = () => {

@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { deleteMockMaterial } from "../model";
+import { deleteMockMaterial } from "../models";
 import { MOCK_MUTATE_DELAY } from "../settings";
 import {
   DeleteMaterialIn,

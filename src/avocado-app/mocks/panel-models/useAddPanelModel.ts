@@ -4,7 +4,7 @@ import {
 } from "@/avocado-app/shared/contract/services";
 import { useCallback, useState } from "react";
 import { MOCK_MUTATE_DELAY } from "../settings";
-import { addMockPanelModel } from "../model";
+import { addMockPanelModel } from "../models";
 
 export const useAddPanelModel = () => {
   const [isMutating, setIsMutating] = useState<boolean>(false);

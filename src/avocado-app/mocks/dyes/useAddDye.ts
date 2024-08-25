@@ -1,7 +1,7 @@
 import { AddDyeIn, AddDyeOut } from "@/avocado-app/shared/contract/services";
 import { useState, useCallback } from "react";
 import { MOCK_MUTATE_DELAY } from "../settings";
-import { addMockDye } from "../model";
+import { addMockDye } from "../models";
 
 export const useAddDye = () => {
   const [isMutating, setIsMutating] = useState<boolean>(false);
