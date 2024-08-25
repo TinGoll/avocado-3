@@ -32,7 +32,8 @@ export const Editable = <T extends EditableValue = string>({
   defaultValue,
   autoSelect,
   confirmOnBlur,
-  confirmOnChange,
+  ignoredOutsideClasses,
+  confirmOnEnter,
   control,
   onSave,
 }: EditableProps<T>): ReactElement => {
@@ -116,6 +117,16 @@ export const Editable = <T extends EditableValue = string>({
     }
   }, []);
 
+  // Обработка нажатия Enter
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent) => {
+      if (confirmOnEnter && event.key === "Enter") {
+        handleConfirm();
+      }
+    },
+    [confirmOnEnter, handleConfirm]
+  );
+
   // Установка фокуса и выделение текста при начале редактирования
   useEffect(() => {
     if (editing && autoSelect && inputRef.current) {
@@ -133,6 +144,7 @@ export const Editable = <T extends EditableValue = string>({
             placeholder,
             defaultValue: value as T,
             ref: inputRef,
+            onKeyDown: handleKeyDown,
           })
         : null,
     [control, handleChange, placeholder, value]
@@ -150,9 +162,17 @@ export const Editable = <T extends EditableValue = string>({
     if (!editing || !confirmOnBlur) return;
 
     const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+
+      // Проверка, находится ли кликнутый элемент внутри одного из игнорируемых классов
+      const isIgnoredClick = ignoredOutsideClasses?.some((className) =>
+        target.closest(`.${className}`)
+      );
+
       if (
         containerRef.current &&
-        !containerRef.current.contains(event.target as Node)
+        !containerRef.current.contains(target) &&
+        !isIgnoredClick // Игнорируем клики по элементам с указанными классами
       ) {
         handleConfirm();
       }

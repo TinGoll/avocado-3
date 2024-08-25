@@ -14,9 +14,12 @@ export type EditableChangeFn = (
     | DatePickerValue
 ) => void;
 
+export type EditableKeyDownFn = (event: React.KeyboardEvent) => void;
+
 type EditableControlProps<T extends EditableValue> = {
   value?: T | null;
   onChange?: EditableChangeFn;
+  onKeyDown?: EditableKeyDownFn;
   className?: string;
   placeholder?: string;
   defaultValue?: T;
@@ -32,7 +35,8 @@ export type EditableProps<T extends EditableValue> = {
   defaultValue?: T;
   autoSelect?: boolean;
   confirmOnBlur?: boolean;
-  confirmOnChange?: boolean;
+  confirmOnEnter?: boolean;
+  ignoredOutsideClasses?: string[];
   control?: (props: EditableControlProps<T>) => ReactNode;
   onSave?: (name: string, value: T) => Promise<void>;
 };
