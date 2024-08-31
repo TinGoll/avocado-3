@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { deleteMockVarnish } from "../model";
+import { deleteMockVarnish } from "../models";
 import { MOCK_MUTATE_DELAY } from "../settings";
 import {
   DeleteVarnishIn,

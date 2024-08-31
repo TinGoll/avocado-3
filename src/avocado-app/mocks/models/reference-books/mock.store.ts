@@ -1,16 +1,16 @@
 import { createStore } from "zustand";
-import { mockCustomers } from "../customers/mockCustomers";
+import { mockCustomers } from "../../customers/mockCustomers";
 import { Customer } from "@/avocado-app/shared/contract/services";
 import { FacadeModel } from "@/avocado-app/shared/contract/types";
-import { mockFacadeModel } from "../facade-models/mockFacadeModel";
+import { mockFacadeModel } from "../../facade-models/mockFacadeModel";
 import { PanelModel } from "@/avocado-app/shared/contract/types/panel-model.types";
-import { mockPanelModels } from "../panel-models/mockPanelModels";
+import { mockPanelModels } from "../../panel-models/mockPanelModels";
 import { MockStoreInitialData, MockStoreActions } from "./mock.store.types";
-import { mockMaterials } from "../materials/mockMaterials";
+import { mockMaterials } from "../../materials/mockMaterials";
 import { Material } from "@/avocado-app/shared/contract/types/material.types";
-import { mockVarnishes } from "../varnishes/mockVarnishes";
+import { mockVarnishes } from "../../varnishes/mockVarnishes";
 import { Varnish } from "@/avocado-app/shared/contract/types/varnish.types";
-import { mockDyes } from "../dyes/mockDyes";
+import { mockDyes } from "../../dyes/mockDyes";
 import { Dye } from "@/avocado-app/shared/contract/types/dye.types";
 
 const initialData: MockStoreInitialData = {

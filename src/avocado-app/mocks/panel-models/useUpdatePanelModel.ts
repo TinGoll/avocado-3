@@ -3,7 +3,7 @@ import {
   UpdatePanelModelOut,
 } from "@/avocado-app/shared/contract/services";
 import { useCallback, useState } from "react";
-import { updateMockPanelModel } from "../model";
+import { updateMockPanelModel } from "../models";
 import { MOCK_MUTATE_DELAY } from "../settings";
 
 export const useUpdatePanelModel = () => {

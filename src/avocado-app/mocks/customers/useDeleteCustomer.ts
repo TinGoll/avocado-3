@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { deleteMockCustomer } from "../model";
+import { deleteMockCustomer } from "../models";
 import { MOCK_MUTATE_DELAY } from "../settings";
 import {
   DeleteCustomerIn,

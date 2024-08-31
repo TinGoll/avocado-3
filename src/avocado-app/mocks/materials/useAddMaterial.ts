@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { addMockMaterial } from "../model";
+import { addMockMaterial } from "../models";
 import { MOCK_MUTATE_DELAY } from "../settings";
 import { AddMaterialIn, AddMaterialOut } from "@/avocado-app/shared/contract/services";
 

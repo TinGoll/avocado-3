@@ -1,21 +1,21 @@
-import { useState, useCallback } from "react";
-import { updateMockMaterial } from "../models";
-import { MOCK_MUTATE_DELAY } from "../settings";
+import { useCallback, useState } from "react";
+import { updateDocument } from "../models";
 import {
-  UpdateMaterialIn,
-  UpdateMaterialOut,
+  UpdateDocumentIn,
+  UpdateDocumentOut,
 } from "@/avocado-app/shared/contract/services";
+import { MOCK_MUTATE_DELAY } from "../settings";
 
-export const useUpdateMaterial = () => {
+export const useUpdateOrderDocument = (orderID: number) => {
   const [isMutating, setIsMutating] = useState<boolean>(false);
 
   const trigger = useCallback(
-    (params: UpdateMaterialIn): Promise<UpdateMaterialOut> => {
+    (params: UpdateDocumentIn): Promise<UpdateDocumentOut> => {
       setIsMutating(true);
       return new Promise((res) => {
         setTimeout(() => {
           setIsMutating(false);
-          updateMockMaterial(params);
+          updateDocument(orderID, params);
           res({});
         }, MOCK_MUTATE_DELAY);
       });

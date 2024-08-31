@@ -3,7 +3,7 @@ import {
   UpdateDyeOut,
 } from "@/avocado-app/shared/contract/services";
 import { useState, useCallback } from "react";
-import { updateMockDye } from "../model";
+import { updateMockDye } from "../models";
 import { MOCK_MUTATE_DELAY } from "../settings";
 
 export const useUpdateDye = () => {

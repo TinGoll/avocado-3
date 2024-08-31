@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { updateMockFacadeModel } from "../model";
+import { updateMockFacadeModel } from "../models";
 import { MOCK_MUTATE_DELAY } from "../settings";
 import {
   UpdateFacadeModelIn,

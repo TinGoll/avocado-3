@@ -2,7 +2,7 @@ import {
   AddFacadeModelIn,
   AddFacadeModelOut,
 } from "@/avocado-app/shared/contract/services";
-import { addMockFacadeModel } from "../model";
+import { addMockFacadeModel } from "../models";
 import { useCallback, useState } from "react";
 import { MOCK_MUTATE_DELAY } from "../settings";
 

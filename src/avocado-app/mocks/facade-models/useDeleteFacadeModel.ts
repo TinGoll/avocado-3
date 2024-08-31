@@ -3,7 +3,7 @@ import {
   DeleteFacadeModelOut,
 } from "@/avocado-app/shared/contract/services";
 import { useCallback, useState } from "react";
-import { deleteMockFacadeModel } from "../model";
+import { deleteMockFacadeModel } from "../models";
 import { MOCK_MUTATE_DELAY } from "../settings";
 
 export const useDeleteFacadeModel = () => {
