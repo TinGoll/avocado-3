@@ -2,15 +2,16 @@ import { createStore } from "zustand";
 import { MockOrderData, MockOrderStore } from "./mockOrder.types";
 import { createNewMockDocument, createNewMockOrder } from "./utils";
 import { wait } from "../../utils";
+import { mockOrders } from "../../order";
 
 const initialData: MockOrderData = {
-  _lastId: 0,
-  orders: [],
+  _lastId: 100,
+  orders: [...mockOrders],
 };
 
 export const mockOrderStore = createStore<MockOrderStore>()((set, get) => ({
   ...initialData,
-  createOrder: async () => {
+  createOrder: async (onSuccess) => {
     const { incrementId } = get();
     incrementId();
     const { _lastId } = get();
@@ -21,6 +22,7 @@ export const mockOrderStore = createStore<MockOrderStore>()((set, get) => ({
     document.orderBy = order.documents.length;
     order.documents.push(document);
     const { orders } = get();
+    onSuccess?.(orderId);
     return set({ orders: [...orders, order] });
   },
   addDocumentToOrder: async (orderId) => {

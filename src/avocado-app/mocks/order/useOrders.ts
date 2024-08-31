@@ -1,12 +1,12 @@
 import { Order } from "@/avocado-app/shared/contract/types";
 import { useEffect, useState } from "react";
-import { useGetMockOrder } from "../models";
+import { useGetMockOrders } from "../models";
 import { MOCK_GET_DELAY } from "../settings";
 
-export const useOrder = (orderID: number) => {
-  const [data, setData] = useState<Order| undefined>();
+export const useOrders = () => {
+  const [data, setData] = useState<Order[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const mocks = useGetMockOrder(orderID);
+  const mocks = useGetMockOrders();
 
   useEffect(() => {
     setIsLoading(true);
