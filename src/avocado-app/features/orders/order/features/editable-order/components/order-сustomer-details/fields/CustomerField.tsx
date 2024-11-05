@@ -5,12 +5,13 @@ import { useState } from "react";
 
 const testApi = () => {
   return new Promise((res, rej) => {
-    setTimeout(rej, 2000);
+    setTimeout(res, 2000);
   });
 };
 
 export const CustomerField = () => {
   const [data, setData] = useState<string>("Заказчик");
+
   const handleSave = async (name: string, value: string) => {
     try {
       await testApi();
@@ -19,16 +20,17 @@ export const CustomerField = () => {
       throw error;
     }
   };
+
   return (
     <OrderField label="Заказчик">
-      <Editable
+      <Editable<string>
         name="customer"
         confirmOnBlur
         onSave={handleSave}
         defaultValue={data}
         autoSelect
         control={({ value, ...props }) => (
-          <Input size="small" value={value || ""} {...props} />
+          <Input size="small" value={value} {...props} />
         )}
       >
         {data}
