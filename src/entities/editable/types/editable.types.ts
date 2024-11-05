@@ -17,7 +17,7 @@ export type EditableChangeFn = (
 export type EditableKeyDownFn = (event: React.KeyboardEvent) => void;
 
 type EditableControlProps<T extends EditableValue> = {
-  value?: T | null;
+  value: T;
   onChange?: EditableChangeFn;
   onKeyDown?: EditableKeyDownFn;
   className?: string;

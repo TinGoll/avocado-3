@@ -145,7 +145,7 @@ export const Editable = <T extends EditableValue = string>({
       control
         ? control({
             onChange: handleChange,
-            value,
+            value: value as T,
             placeholder,
             defaultValue: value as T,
             ref: inputRef,
