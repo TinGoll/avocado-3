@@ -10,7 +10,7 @@ export interface MockOrderData {
 }
 
 export interface MockOrderActions {
-  createOrder: () => Promise<void>;
+  createOrder: (onSuccess?: (orderID: number) => void) => Promise<void>;
   addDocumentToOrder: (orderId: number) => Promise<void>;
   updateOrder: (orderData: UpdateOrderIn) => Promise<void>;
   updateDocument: (
