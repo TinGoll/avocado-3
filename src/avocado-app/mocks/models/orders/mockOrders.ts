@@ -5,6 +5,7 @@ export const mockOrders: Order[] = [
   {
     id: 1,
     name: "Тестовый заказ",
+    errors: ["Не указан цвет", "Не указана модель фасада"],
     customer: {
       id: 1,
       login: "costomer-1",
@@ -12,7 +13,7 @@ export const mockOrders: Order[] = [
     },
     author: "mock-user",
     priceName: null,
-    amount: 0,
+    amount: 256000,
     workingDays: 0,
     criticality: OrderCriticality.NORMAL,
     createdAt: new Date(),

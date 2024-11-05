@@ -1,7 +1,7 @@
 import { FC } from "react";
-
 import styled from "@emotion/styled";
 import { CustomerOrderPicker } from "../entities/customer-order-picker";
+import { SummaryOfOrders } from "../features/summary-of-orders";
 
 const OverriddenStyles = styled.div`
   color: ${({ theme }) => theme.pelette.lime.main};
@@ -11,10 +11,7 @@ const OverriddenStyles = styled.div`
 export const OrdersPage: FC = () => {
   return (
     <>
-      <div>Тут будет таблица с заказами.</div>
-      <OverriddenStyles>
-        <CustomerOrderPicker width={'20vw'} />
-      </OverriddenStyles>
+      <SummaryOfOrders />
     </>
   );
 };

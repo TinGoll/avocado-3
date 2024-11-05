@@ -9,6 +9,7 @@ import { Varnish } from "./varnish.types";
 
 export interface Order {
   id: number;
+  errors?: string[];
   name: string;
   customer: Customer | null;
   author: string;

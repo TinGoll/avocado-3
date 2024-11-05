@@ -2,7 +2,9 @@ import { createStore } from "zustand";
 import { MockOrderData, MockOrderStore } from "./mockOrder.types";
 import { createNewMockDocument, createNewMockOrder } from "./utils";
 import { wait } from "../../utils";
-import { mockOrders } from "../../order";
+import { mockOrders } from "./mockOrders";
+
+
 
 const initialData: MockOrderData = {
   _lastId: 100,
