@@ -3,7 +3,7 @@ import { Order } from "@/avocado-app/shared/contract/types";
 
 export const mockOrders: Order[] = [
   {
-    id: 1,
+    id: 100,
     name: "Тестовый заказ",
     errors: ["Не указан цвет", "Не указана модель фасада"],
     customer: {

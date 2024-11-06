@@ -10,6 +10,7 @@ import {
   RegistrationDateField,
   UrgencyField,
 } from "./fields";
+import { Button } from "antd";
 
 const Container = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ const Block = styled.div`
   flex: 1;
   display: grid;
   grid-template-columns: minmax(140px, auto) 1fr;
-  gap: 8px 16px;
+  gap: 8px 8px;
   min-width: 320px;
 `;
 

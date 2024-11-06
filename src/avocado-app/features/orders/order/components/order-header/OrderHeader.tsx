@@ -9,7 +9,7 @@ import { OrderHeaderBreadcrumb } from "./OrderHeaderBreadcrumb";
 import { useTheme } from "@emotion/react";
 import { useMode } from "@/entities/theme";
 import { OrderHeaderContainer as Container } from "./OrderHeaderContainer";
-import { useOrderId } from "../../hooks";
+import { useOrderId } from "@/avocado-app/shared/hooks";
 
 export const OrderHeader: FC = () => {
   const orderId = useOrderId();
